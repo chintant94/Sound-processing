@@ -103,7 +103,7 @@ plt.plot(y)
 
 data_rfft=np.fft.rfft(y)
 plt.figure(figsize=(12,4))
-plt.suptitle('freq of rfft',x=0.5,y=0.8,fontsize=20)
+plt.suptitle('RFFT frequencies',x=0.5,y=0.8,fontsize=20)
 plt.xlabel('Samples of time')
 plt.ylabel('Frequency')
 plt.plot(data_rfft)
