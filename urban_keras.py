@@ -91,3 +91,19 @@ x.columns=['Class']
 df=pd.concat([x,ts_dataset],axis=1)
 
 df.to_csv("C:\\Users\\I333690\\Desktop\\Fellowship\\Audio_files\\Dataset\\urban_sounds\\test\\output.csv",sep=',',index=False)
+
+
+#Plotting graphs for data and RFFT
+y, sr = librosa.load('C:\\Users\\I333690\\Desktop\\Fellowship\\Audio_files\\Dataset\\coffee_machine\\WAV16\\0.wav')
+plt.figure(figsize=(12,4))
+plt.suptitle('y',x=0.5,y=0.8,fontsize=20)
+plt.xlabel('Samples of time')
+plt.ylabel('Amplitude')
+plt.plot(y)
+
+data_rfft=np.fft.rfft(y)
+plt.figure(figsize=(12,4))
+plt.suptitle('freq of rfft',x=0.5,y=0.8,fontsize=20)
+plt.xlabel('Samples of time')
+plt.ylabel('Frequency')
+plt.plot(data_rfft)
