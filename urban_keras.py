@@ -11,6 +11,7 @@ from keras.utils import np_utils
 from sklearn.preprocessing import LabelEncoder
 
 
+#Converts mp3 files to wav files 
 def mp3towav(dir):
     for filename in os.listdir(dir):
         if(dir.split('\\')[-2]=='Train'):
@@ -28,6 +29,7 @@ tr_dataset=pd.read_csv("C:\\Users\\I333690\\Desktop\\Fellowship\\Audio_files\\Da
 ts_dataset=pd.read_csv("C:\\Users\\I333690\\Desktop\\Fellowship\\Audio_files\\Dataset\\urban_sounds\\test\\test.csv")
 
 
+#Extracts label of audio file and it's MFCCS feature
 def loadFileAndFeature(dir):
     mfccs=[]
     label=[]
@@ -50,7 +52,6 @@ def loadFileAndFeature(dir):
 #    mfccs=(np.mean(librosa.feature.mfcc(y,sr,n_mfcc=40).T,axis=0))
 #    label=(row.Class)
 #    return [label,mfccs]
-
 #tr=tr_dataset.apply(loadFileAndFeature,axis=1)
 #tr.columns('label','feature')
 
@@ -90,20 +91,3 @@ x.columns=['Class']
 df=pd.concat([x,ts_dataset],axis=1)
 
 df.to_csv("C:\\Users\\I333690\\Desktop\\Fellowship\\Audio_files\\Dataset\\urban_sounds\\test\\output.csv",sep=',',index=False)
-
-#with open("C:\\Users\\I333690\\Desktop\\Fellowship\\Audio_files\\Dataset\\urban_sounds\\test\\output.csv","w") as file:
-#    csv_out=csv.writer(file)
-#    for row in df:
-#        csv_out.writerow(row)
-
-#To add 2 lists 2 a single list
-#temp=list(zip(x,ts_dataset))
-        
-        
-#Write a list to CSV file
-#with open("C:\\Users\\I333690\\Desktop\\Fellowship\\Audio_files\\Dataset\\urban_sounds\\test\\output.csv","w") as file:
-#    for line in output:
-#        file.write(line)
-#        file.write('\n')
-
-    
